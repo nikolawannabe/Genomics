@@ -1,0 +1,15 @@
+[
+{
+  "modid": "mcp",
+  "name": "Generic Mod",
+  "description": "Trying out some stuff.",
+  "version": "0.01",
+  "mcversion": "1.4.7",
+  "updateUrl": "",
+  "authors": ["Case"],
+  "credits": "",
+  "parent": "Red Power 2 - Core, Lighting",
+  "screenshots": [],
+  "dependencies": [RedPower 2, Core, Lighting]
+}
+]

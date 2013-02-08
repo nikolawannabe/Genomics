@@ -1,0 +1,143 @@
+<portlane.esper.net>: *** Looking up your hostname...
+<portlane.esper.net>: *** Checking Ident
+<portlane.esper.net>: *** Found your hostname
+<portlane.esper.net>: *** Got Ident response
+CGI:IRC host/IP set to c-71-231-180-165.hsd1.wa.comcast.net 71.231.180.165
+-                    __   __                    
+- .-----.-----.----.|  |_|  |.---.-.-----.-----.
+- |  _  |  _  |   _||   _|  ||  _  |     |  -__|
+- |   __|_____|__|  |____|__||___._|__|__|_____|
+- |__|   Welcome to portlane.esper.net!                                       
+-  
+- Info:
+-  Support for IPv4 & IPv6.
+-  Server hosted by Portlane (www.portlane.com) and
+-  located in Stockholm, Sweden.
+-  
+- Timeline:
+-  14/08/2012: We've now linked to EsperNet.
+-  
+- Staff:
+-    suom1: Administrator
+-  brynjar: Administrator
+-  
+- Channels:
+-  #dragonweyr - Network staff assistance
+-  #coders     - Help with programming
+-  #lobby      - Chat
+-  #help       - General IRC help
+-  
+- Terms of Service:
+-  Your use of this network constitutes an agreement to abide by the
+-  rules presented in the EsperNet AUP - http://esper.net/charter.php
+-  as well as any applicable Swedish and International laws.
+-  
+-  Further, your use of this network implies consent to a port scan
+-  to detect open proxies and otherwise compromised systems.
+-  
+-  Properly configured bots are permitted, but are required to follow
+-  the same rules as users. FServes are strictly prohibited.
+-  
+-  We reserve the right to remove anyone at any time for any reason.
++++ Case set to mode +i
+Rules: Stay on topic, don't PM without invitation, Don't ping {say the full name} Lex, Don't ask about a release. Don't ask about Official API. Downloads: http://files.minecraftforge.net
+Topic set by LexManos on Fri Jan 11 2013 10:57:15 GMT-0800 (PST)
+<Case>: First time modder here - if this is a stupid question, I apologize.  I'd like to make my mod depend on another mod so I changed the @mod attribute to add "dependencies = "required-afterthermod"", but I'm not sure where to put this other mod, or if there is anything else I should do to use it's items, such as blocks.
+<Pixotic\Work>: does eclipse store all of its data, settings/plugins etc in its own directory?
+<Pixotic\Work>: I@m wondering the feasibility of using it in hotseat mode
+<Pixotic\Work>: either having it on a usb drive or hosting it in my dropbox
+*** JustKojack is now known as JustKojack|off
+<monoxide>: Case: the other mod needs to provide you some way to access it's stuff. typically, that's through an api that you put into your own mod in eclipse or for open source mods, it can even be putting hte entire mod in as well
+*** requimrar|away is now known as requimrar
+<requimrar>: quick java question: are labels constrained by scope?
+<mDiyo>: I'm not a fan of labels in code. It seems like a holdover from when functions didn't exist.
+<mDiyo>: Scope does matter though.
+<monoxide>: to answer though, they are scoped to the function i believe
+<requimrar>: great
+<requimrar>: also: when comparing itemstacks... is there a way to provide metadata and item, but make it match any count?
+<requimrar>: *stacksize
+<monoxide>: when comparing itemstacks, it compares however you tell it to compare. pretty sure the .equals isn't overloaded in a sensible way
+<mDiyo>: I don't think any of the built-in comparers care about size.
+<requimrar>: mDiyo: labels are good for jumping out of nested loops. quite useful when iterating through >1D arrays
+<mDiyo>: Okay fine, you pointed out the one good place for them. 
+<requimrar>: lol
+<requimrar>: so...
+<mDiyo>: Personally I prefer break statements, but if you need to go back up...
+<requimrar>: back to the question; I need to know if the itemstack in the slot is an element of the same type, (ie. same metadata and itemID) but not same count... is it possible with an '==' ?
+<monoxide>: return > break. functions are wonderful things. the one thing i learnt from python that i care to admit to
+<monoxide>: no req, you need to compare the parts of the itemstack you care about manually
+<requimrar>: mDiyo: one thing that is quite obvious is that goto label doesn't exist anymore, it's clear java's designers wanted it in to exit from nested loops.
+<requimrar>: monoxide: thanks
+<mDiyo>: ItemStack has a few functions to compare them.
+<mDiyo>: ItemStack.isItemEqual will check for ID, damage, and NBTTags
+<mDiyo>: Comparing ID and damage without NBTTags isn't the best idea. 
+<mDiyo>: An enchanted sign is different from a regular one, and my tools are tagged to oblivion.
+<Case>: @monoxide, I'm using redpower2, looks like they have redpower compat for devs, still digging for appropriate documentation - do you know where I would put the mods to load them in the development environment?  I've tried forge/mcp/jars/mods and it doesn't seem to do what I want.
+<monoxide>: RP2 has no method to interface with it
+<monoxide>: unless something changed drastically i'm not aware of...
+<monoxide>: elo's always been pretty staunchly opposed to the idea
+<Case>: and I couldn't just grab the block numbers for the items I need? (just lumar)
+<mDiyo>: Last I knew RP2 didn't have anything resembling an API for other mods.
+<Case>: (and yes, looks likes compat is just for blutricity conversion)
+<monoxide>: officially, no. probably, yes. would the community be happy? probably not... most of elo's fans are pretty... well, anyway.
+<Case>: haha, well
+<monoxide>: compat is *elo's* code
+<monoxide>: not an api for otheres
+<Case>: right, got that.
+<Case>: (now.)
+<monoxide>: maybe it'll be expanded to that in the future... wouldn't hold my breath though
+<mDiyo>: Eloraam doesn't like anyone even thinking about touching her mods with nasty code.
+<monoxide>: i'd check the forge dictionary though, there's a chance she registers lumar in there
+<Case>: in any case, to use a mod with the development client, should just be able to put it in the mcp/jars/mods, or what's the real location?
+<monoxide>: she does with many of her items
+<mDiyo>: At least that's the impression I got last time I talked to her >_>
+<Case>: I found an id already off a gist somewhere
+<mDiyo>: You need to deobfuscate it first.
+<mDiyo>: ?bon Case
+<OverbotDL1>: > Case:  http://dl.dropbox.com/u/2944265/mods/BON.jar
+<Case>: But yeah, whether I release it or not, I just want to know how it is done
+<Case>: thanks @overbotDL1
+<aji>: "redpower compat" is the portion of redpower that supplies the blulectric engine
+<aji>: the one that produces MJ
+<Case>: Aye.
+<Case>: Actually I was ...ecstatic when I saw that it was a chick developing it
+<Case>: first time I've seen another girl developing something I liked 
+<aji>: i fail to see how that matters
+<Case>: "matters", no.
+<Case>: Just a bit of solidarity.
+<aji>: also mDiyo may i PM you?
+<mDiyo>: #InfiCraft is pretty empty, we could talk there.
+<aji>: i'd feel more comfortable in PM 
+<mDiyo>: Heh, fine.
++++ MineBot has given voice to SirSengir
+<Case>: @OverbotDL1 - I dropped the jar in mcp/jars/mods but it doesn't seem to load.  Is it supposed to go elsewhere?
+<aji>: OverbotDL1 is a bot, lol
+<Case>: ..
+<Case>: of course.
+<aji>: also, only deobfuscated mods can be used in mcp/jars/mods i think
+<aji>: that's part of what BON is supposed to take care of
+<Case>: ohh
+<mDiyo>: BON is a deobfuscator. Run it on any mods you want to try in mcp
+<Case>: okay
+<monoxide>: though, it should still load... it'll just break straight away too
+<Case>: hah
+<Case>: alright, I'm off for the night.  Thanks for the help folks.
+<Pixotic\Work>: Case: dropping compiled mod jars into your mcp test instance won't work because those mods are expecting to interact with obfuscated mc code
+<Pixotic\Work>: what you'll need to do is either unobfuscate the mod you're adding, or compile your mod and add both jars to a new instance of, for example, multimc
+<Case>: hmm
+<Case>: I see
+<Case>: makes sense, thanks!
+<monoxide>: hence why about 3 people now have already suggested BON...
+<Case>: right
+<taygetea>: i couldn't get BON to work...
+<taygetea>: i was probably doing it wrong
+<Pixotic\Work>: Incidentally, Bearded Octo Nemesis is possibly the greatest name for a development tool ever
+<Case>: rofl
+<taygetea>: it always gave me empty files
+<Pixotic\Work>: I've never actually used it, I just started modding last night soooo
+<Pixotic\Work>: still, great name
+<taygetea>: i'd love to be able to use it, if only because knowing how RP2 project tables work would be really useful for what i'm doing
+<Case>: docs are here https://github.com/immibis/bearded-octo-nemesis
+<luacs1998>: aggh mindcrack broke
+<taygetea>: i know, i saw that page. i'm guessing i wasn't specifying where MCP was correctly
+<taygetea>: what's the exact folder it needs to be pointed at?
